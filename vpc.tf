@@ -1,9 +1,11 @@
 
 provider "aws" {
-  region = var.aws_region
+  region = "ap-south-1"
 }
 
-data "aws_availability_zones" "available" {}
+data "aws_availability_zones" "available" {
+state = "available"
+}
 
 locals {
   cluster_name = "abhi-eks-${random_string.suffix.result}"
